@@ -1,5 +1,7 @@
 "use client";
 
+import Footer from "@/_components/Home/Footer";
+import Header from "@/_components/Home/Headerclient";
 import { ButtonGroupOrientation } from "@/_components/Home/Plusgroupbutton";
 import Svg from "@/_components/Home/Svg";
 import { Button } from "@/_components/ui/button";
@@ -68,15 +70,22 @@ const ClientHomepage = () => {
   //   getCategories();
   // }, []);
   return (
-    <div className="bg-[#404040] h-screen w-[1440px] mx-auto">
-      <Svg></Svg>
+    <div className="bg-[#404040] h-fit w-[1440px] mx-auto">
+      <Header
+        plus={plus}
+        price={price}
+        handleonminus={handleonminus}
+        handleonplus={handleonplus}
+      />
+
+      <img src="BG.svg"></img>
       <div className="w-[1264px] mx-auto h-sceen ">
-        <div className="text-white font-bold">Appetizers</div>
-        <div className="flex flex-wrap gap-[20px] mt-[54px] text-[30px] ">
-          {Array.from({ length: 6 }).map(() => {
+        <div className="text-white font-bold mt-[20px]">Appetizers</div>
+        <div className="flex flex-wrap gap-[20px] mt-[24px] text-[30px] ">
+          {Array.from({ length: 6 }).map((_, index) => {
             return (
               <div
-                key={length}
+                key={index}
                 className="h-[350px] w-[400px] bg-white rounded-md"
               >
                 <div className="mx-[16px] my-[16px]">
@@ -166,6 +175,7 @@ const ClientHomepage = () => {
           })}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

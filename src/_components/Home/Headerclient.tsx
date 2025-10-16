@@ -13,9 +13,22 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Button } from "../ui/button";
-const Header = () => {
+import { ButtonGroup } from "@/components/ui/button-group";
+import { MinusIcon, PlusIcon } from "lucide-react";
+import { Textarea } from "../ui/textarea";
+const Header = ({
+  price,
+  plus,
+  handleonminus,
+  handleonplus,
+}: {
+  price: number;
+  plus: number;
+  handleonminus: Function;
+  handleonplus: Function;
+}) => {
   return (
-    <div className="w-[1440px] h-[180px] bg-[#18181B] flex items-center mx-auto justify-between">
+    <div className="w-[1440px] h-[70px] bg-[#18181B] flex items-center mx-auto justify-between">
       <div className="w-[1260px] mx-auto flex justify-between items-center">
         <div>
           <div className="flex gap-4 text-white">
@@ -40,7 +53,7 @@ const Header = () => {
                 <FiShoppingCart />
               </div>
             </PopoverTrigger>
-            <PopoverContent className="h-screen w-[550px] bg-[#404040]">
+            <PopoverContent className="h-screen w-[550px] bg-[#404040] ">
               <div className="tabs tabs-box bg-[#404040] pb-10">
                 <input
                   type="radio"
@@ -51,12 +64,132 @@ const Header = () => {
 
                 <div className="tab-content">
                   <div className="h-10 bg-[#404040]"></div>
-                  <div className="h-[530px] w-[471px] bg-white rounded-md ">
+                  <div className="h-fit w-[471px] bg-white rounded-md ">
                     <div className="pt-[16px] pl-[16px]">
                       <div className="text-[20px] text-[#71717A] font-semibold">
                         My cart
                       </div>
-                      <div className="h-[120px]"></div>
+                      <div className="flex  h-[120px] mt-5   ">
+                        <div className="w-[124px] h-[120px] ">
+                          <img
+                            src="/food1.png"
+                            className="w-[124px] h-[120px] object-cover rounded-md "
+                          ></img>
+                        </div>
+                        <div className="flex flex-col ml-2 w-[305px]">
+                          <div className=" flex  ">
+                            <div>
+                              <div className="text-red-500 font-semibold text-[16px]">
+                                Finger food
+                              </div>
+                              <div className="text-[12px] mt-[12px] text-[#09090B] items-start">
+                                Fluffy pancakes stacked with fruits, cream,
+                                Fluffy pancakes stacked with fruits, cream,
+                              </div>
+                            </div>
+
+                            <Button className="h-[36px] w-[36px] rounded-full border-2 border-red-400 bg-white text-red-400">
+                              X
+                            </Button>
+                          </div>
+
+                          <div className="mt-[10px] flex justify-between items-center">
+                            <div>
+                              <ButtonGroup
+                                aria-label="Media controls"
+                                className="h-fit gap-2"
+                              >
+                                <Button
+                                  variant="outline"
+                                  size="icon"
+                                  onClick={() => handleonminus()}
+                                >
+                                  <MinusIcon />
+                                </Button>
+                                <Button className="rounded-full">{plus}</Button>
+                                <Button
+                                  variant="outline"
+                                  size="icon"
+                                  onClick={() => handleonplus()}
+                                >
+                                  <PlusIcon />
+                                </Button>
+                              </ButtonGroup>
+                            </div>
+                            <div>
+                              <div className="text-[#09090B] text-[24px] font-semibold">
+                                ${price}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="h-[30px] w-[440px] border-b-4 border-dashed"></div>
+                      <div className="flex  h-[120px] mt-5   ">
+                        <div className="w-[124px] h-[120px] ">
+                          <img
+                            src="/food1.png"
+                            className="w-[124px] h-[120px] object-cover rounded-md "
+                          ></img>
+                        </div>
+                        <div className="flex flex-col ml-2 w-[305px]">
+                          <div className=" flex  ">
+                            <div>
+                              <div className="text-red-500 font-semibold text-[16px]">
+                                Finger food
+                              </div>
+                              <div className="text-[12px] mt-[12px] text-[#09090B] items-start">
+                                Fluffy pancakes stacked with fruits, cream,
+                                Fluffy pancakes stacked with fruits, cream,
+                              </div>
+                            </div>
+
+                            <Button className="h-[36px] w-[36px] rounded-full border-2 border-red-400 bg-white text-red-400">
+                              X
+                            </Button>
+                          </div>
+
+                          <div className="mt-[10px] flex justify-between items-center">
+                            <div>
+                              <ButtonGroup
+                                aria-label="Media controls"
+                                className="h-fit gap-2"
+                              >
+                                <Button
+                                  variant="outline"
+                                  size="icon"
+                                  onClick={() => handleonminus()}
+                                >
+                                  <MinusIcon />
+                                </Button>
+                                <Button className="rounded-full">{plus}</Button>
+                                <Button
+                                  variant="outline"
+                                  size="icon"
+                                  onClick={() => handleonplus()}
+                                >
+                                  <PlusIcon />
+                                </Button>
+                              </ButtonGroup>
+                            </div>
+                            <div>
+                              <div className="text-[#09090B] text-[24px] font-semibold">
+                                ${price}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="h-[30px] w-[440px] border-b-4 border-dashed"></div>
+                      <div className="h-[120px] mb-[20px] pb-[40px]">
+                        <div className="text-[20px] text-[#71717A] font-semibold mt-[56px]">
+                          Delivery location
+                        </div>
+                        <Textarea
+                          className="h-[80px] mt-[8px] pb-[40px]"
+                          placeholder="Please share your  complete address"
+                        ></Textarea>
+                      </div>
                     </div>
                   </div>
                   <div className="h-10 bg-[#404040]"></div>

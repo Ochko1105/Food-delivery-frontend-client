@@ -73,7 +73,6 @@ const Footer = () => {
         </nav>
       </footer>
       <div className="w-[1440px] bg-[#18181B] mt-[84px]">
-        {" "}
         <footer className="footer bg-[#18181B] text-base-content  border-t px-10 py-4 border-[#F4F4F566] w-[1260px] mx-auto ">
           <div className="grid-flow-col items-center text-[#71717A] gap-[48px] pb-30">
             <div>Copyright Container</div>
