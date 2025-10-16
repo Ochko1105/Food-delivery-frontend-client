@@ -5,8 +5,11 @@ const Footer = () => {
     <div className="w-[1440px] h-fit mx-auto bg-[#18181B]">
       <div className="bg-[#18181B] h-[65px] w-[1440px"></div>
       <div className="h-[92px] bg-[#EF4444] flex ">
-        {Array.from({ length: 4 }).map((index) => (
-          <div className="w-[1260px] mx-auto flex items-center justify-center">
+        {Array.from({ length: 4 }).map((_, index) => (
+          <div
+            key={index}
+            className="w-[1260px] mx-auto flex items-center justify-center"
+          >
             <div className="font-bold text-[20px]">Fresh Fast delivered</div>
           </div>
         ))}
